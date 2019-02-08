@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ExpressBank-Backend
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: personal
+Implementation-Vendor-Id: com.expressbank
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/ExpressBank-Backend
+Created-By: Maven Integration for Eclipse
+
