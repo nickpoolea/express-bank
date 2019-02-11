@@ -1,0 +1,33 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="card col-md-6 mx-auto">
+
+      <!-- <img class="card-img-top" src="../../assets/express-bank-logo.png" alt="Card image cap"> -->
+
+      <div class="card-body">
+
+        <form (submit)="submitLogin()">
+
+          <h5 class="card-title"> Login to your account</h5>
+
+          <div class="form-group">
+            <label>Username</label>
+            <input name="username" [(ngModel)]="username" type="sting" class="form-control"
+              placeholder="Enter username">
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input name="password" [(ngModel)]="password" type="password" class="form-control"
+              placeholder="Password">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

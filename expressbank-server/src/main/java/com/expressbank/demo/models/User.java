@@ -88,4 +88,18 @@ public class User {
 		this.password = password;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		
+		s
+		.append("First name: " + getFirstName() + "\n")
+		.append("Last name: " + getLastName() + "\n")
+		.append("Username: " + getUsername() + "\n")
+		.append("Email: " + getEmail() + "\n")
+		.append("Password: " + getPassword());
+		
+		return s.toString();
+	}
+	
 }

@@ -1,5 +1,7 @@
 package com.expressbank.demo.controllers;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +19,29 @@ public class SessionController {
 	private UserService userService;
 	
 	@PostMapping("login")
-	public boolean login(@RequestBody User userDetails) {
-		return userService.validateUser(userDetails);		
+	public User login(@RequestBody User userDetails, HttpServletResponse response) {
+		User user = userService.validateUser(userDetails);
+		
+		if (user == null) {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
+		
+		return user;
+	}
+	
+	@PostMapping("register")
+	public User register(@RequestBody User userDetails, HttpServletResponse response) {
+		
+		System.out.println(userDetails.toString());
+		
+		User user = userService.registerUser(userDetails);
+		
+		
+		if (user == null) {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
+		
+		return user;
 	}
 
 }

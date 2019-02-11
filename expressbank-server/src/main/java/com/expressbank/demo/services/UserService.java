@@ -53,14 +53,26 @@ public class UserService {
         return user;
 	}
 	
-	public boolean validateUser(User userDetails) {
+	public User validateUser(User userDetails) {
 		User user = userRepo.findByUsername(userDetails.getUsername());
-		
-		if (user != null) {
-			return user.getPassword().equals(userDetails.getPassword());
+				
+		if (user != null && user.getPassword().equals(userDetails.getPassword())) {
+			return user;
 		}
 		
-		return false;
+		return null;
+	}
+	
+	public User registerUser(User userDetails) {
+		User user = userRepo.findByUsername(userDetails.getUsername());
+		
+		if (user == null) {
+			System.out.println("User is null");
+			createUser(userDetails);
+			return userRepo.findByUsername(userDetails.getUsername());
+		}
+		
+		return null;
 	}
 	
 }

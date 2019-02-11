@@ -1,0 +1,42 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="card col-md-6 mx-auto">
+      <div class="card-body">
+
+        <form (submit)="submitRegistration()">
+
+          <h5 class="card-title">Register for a new account</h5>
+
+          <div class="form-group">
+            <label>First Name</label>
+            <input name="firstName" [(ngModel)]="firstName" type="string" class="form-control" placeholder="First Name">
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input name="lastName" [(ngModel)]="lastName" type="string" class="form-control" placeholder="Last Name">
+          </div>
+
+          <div class="form-group">
+              <label>Email</label>
+              <input name="email" [(ngModel)]="email" type="email" class="form-control" placeholder="Email">
+            </div>
+
+          <div class="form-group">
+            <label>Username</label>
+            <input name="username" [(ngModel)]="username" type="string" class="form-control" placeholder="Username">
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input name="password" [(ngModel)]="password" type="password" class="form-control" placeholder="Password">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
