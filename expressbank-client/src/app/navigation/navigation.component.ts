@@ -8,10 +8,12 @@ import { AuthenticationService } from '../_services/authentication.service';
 })
 export class NavigationComponent implements OnInit {
 
+  loggedIn: boolean = false;
+
   constructor(private auth: AuthenticationService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+  
 
   logout() {
     console.log("This is running logout");

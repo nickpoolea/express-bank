@@ -1,0 +1,6 @@
+.navbar-nav .nav-link,
+.navbar-brand {
+  text-align: center;
+  display: inline-block;
+  float: none;
+}

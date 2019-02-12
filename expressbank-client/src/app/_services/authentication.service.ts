@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from "rxjs/operators";
 import { User } from '../models/user';
 
@@ -9,6 +9,8 @@ import { User } from '../models/user';
 })
 export class AuthenticationService {
 
+  loggedIn$ = new Subject<boolean>();
+  loggedIn: boolean;
   baseUrl = 'http://localhost:8080/session/';
   options = { withCredentials: false };
 
@@ -23,6 +25,7 @@ export class AuthenticationService {
       .pipe(map(
         user => {
           localStorage.setItem('currentUser', JSON.stringify(user));
+          this.setLogin(true);
         },
         err => {
           console.log('Encountered error logging in ' + err);
@@ -30,9 +33,14 @@ export class AuthenticationService {
       ));
   }
 
+  setLogin(value: boolean) {
+    this.loggedIn$.next(value);
+    this.loggedIn = value;
+  }
+
   logout() {
-    console.log("Removing User!");
     localStorage.removeItem('currentUser');
+    this.setLogin(false);
   }
 
   register(firstName: string, lastName: string, email: string, username: string, password: string) {

@@ -10,10 +10,11 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 
 const appRoutes: Routes = [
-  { path: 'account', component: AccountComponent },
+  { path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
   { path: 'login'  , component: LoginComponent },
   { path: 'home'  , component: HomeComponent },
   { path: 'register'  , component: RegisterComponent },

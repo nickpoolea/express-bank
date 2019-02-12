@@ -24,11 +24,11 @@
       </li>
 
       <li>
-        <a class="nav-link" href="login">login</a>
+        <a class="nav-link" *ngIf="!auth.loggedIn" href="login">login</a>
       </li>
 
       <li>
-        <a class="nav-link" href="#" (click)="logout()">logout</a>
+        <a class="nav-link" *ngIf="auth.loggedIn" href="#" (click)="logout()">logout</a>
       </li>
 
     </ul>
